@@ -1,0 +1,56 @@
+# Unity-generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+
+# Rider and VS Code
+.idea/
+.vscode/
+*.sln
+*.csproj
+*.pidb
+*.unityproj
+*.user
+*.userprefs
+*.suo
+
+# Mac & system files
+.DS_Store
+Thumbs.db
+
+# Crash & debug logs
+sysinfo.txt
+*.stacktrace
+
+# Auto-generated files by Unity
+*.booproj
+
+# JetBrains Rider
+*.sln.dotSettings
+
+# Unity Cloud Build
+*.cloud
+
+# Plastic SCM
+.plastic/
+ignore.conf
+
+# VS Code Workspace
+*.code-workspace
+
+# Build artifacts
+*.apk
+*.aab
+*.exe
+*.app
+*.x86
+*.x86_64
+*.pdb
+
+# AddressableAssets cache
+*/ServerData/
