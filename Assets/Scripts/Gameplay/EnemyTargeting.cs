@@ -4,7 +4,11 @@ using UnityEngine;
 public class EnemyTargeting : MonoBehaviour
 {
     public GameObject enemyPool;
+
     public GameObject laserPrefab;
+    public GameObject autoLaserPrefab;
+
+    public Transform autoFirePoint;
     public Transform firePoint1;
     public Transform firePoint2;
     public ShipStats shipStats;
@@ -48,6 +52,15 @@ public class EnemyTargeting : MonoBehaviour
         }
     }
 
+    public void AutoFire()
+    {
+        Transform closestEnemy = FindClosestEnemy();
+        if (closestEnemy != null && autoFirePoint != null)
+        {
+            GameObject laser = Instantiate(autoLaserPrefab, autoFirePoint.position, Quaternion.identity);
+            laser.GetComponent<Laser>().Init(closestEnemy, shipStats.GetDamage());
+        }
+    }
     Transform FindClosestEnemy()
     {
         Transform closest = null;

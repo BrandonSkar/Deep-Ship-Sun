@@ -23,10 +23,10 @@ public class Laser : MonoBehaviour
         lr.SetPosition(0, start);
         lr.SetPosition(1, end);
 
-        EnemyHealth enemyHealth = target.GetComponent<EnemyHealth>();
-        if (enemyHealth != null)
+        GameStageManager gsm = FindObjectOfType<GameStageManager>();
+        if (gsm != null)
         {
-            enemyHealth.TakeDamage(damage);
+            gsm.DealDamage(damage);
         }
 
         Vector3 explosionPosition = end;
