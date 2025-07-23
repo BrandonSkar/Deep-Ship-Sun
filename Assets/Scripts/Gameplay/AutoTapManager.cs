@@ -16,6 +16,9 @@ public class AutoTapManager : MonoBehaviour
 
     void Update()
     {
+        if (UIManager.Instance != null && UIManager.Instance.IsMenuOpen)
+            return;
+
         tapTimer += Time.deltaTime;
 
         if (tapTimer >= GetCurrentInterval())

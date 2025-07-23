@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class GameStageManager : MonoBehaviour
 {
@@ -74,7 +75,29 @@ public class GameStageManager : MonoBehaviour
 
     void OnEnemyDefeated()
     {
+        if (currentEnemy != null)
+        {
+            // Let the enemy handle its own death
+            var enemyDetails = currentEnemy.GetComponent<EnemyDetails>();
+            if (enemyDetails != null)
+            {
+                enemyDetails.Die();
+            }
+            else
+            {
+                // Fallback if no script exists
+                Destroy(currentEnemy);
+            }
+        }
+
         Debug.Log($"Stage {currentStage} cleared!");
+        StartCoroutine(WaitAndStartNextStage());
+    }
+
+    IEnumerator WaitAndStartNextStage()
+    {
+        yield return new WaitForSeconds(0.5f);
+
         currentStage++;
         StartStage(currentStage);
     }
